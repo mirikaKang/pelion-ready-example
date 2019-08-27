@@ -1,8 +1,13 @@
-# Pelion Device Ready example - template application
-
-(aka Simple Mbed Cloud Client template)
-
+# Pelion Device Ready example - Cellular Custom#
 ## Overview
+
+This is a cellular application to showcase device managemnt capabilities via [SK telecom](https://www.sktelecom.com/index_en.html) and [LGU+](http://www.uplus.co.kr/home/Index.hpi). Each telecoms are providing CatM1(SKT, LGU+) and NBIoT(LGU+) service in S.Korea.
+
+This codes are based on below versions.
+Mbed OS 5.13.1
+Mbed-Cloud-Client 2.2.1
+
+---------------------------------------------------------------------------------------------------------------------------------------
 
 This is a template application to showcase device management capabilities. It demonstrates how to create a simple application that can connect to the Pelion IoT Platform service, register resources and get ready to receive a firmware update.
 
@@ -15,7 +20,9 @@ There is a mirror version of the stable (master) template application on [this l
   There are a number of applications that make usage of the Simple Pelion DM Client library.
 
   The Pelion [Quick-Start](https://cloud.mbed.com/quick-start) is an initiative to support Mbed Partner's platforms while delivering a great User Experience to Mbed Developers.
-
+  
+  In terms of cellular, operation confirmed with [DISCO-L475VG-IOT01A](https://os.mbed.com/platforms/ST-Discovery-L475E-IOT01A/)
+    
 ## Getting started with the application
 
 This is a summary of the process for developers to get started and get a device connected to Pelion Device Management.
@@ -32,8 +39,17 @@ This is a summary of the process for developers to get started and get a device 
 1. Import the application into your desktop:
 
     ```
-    mbed import https://github.com/ARMmbed/pelion-ready-example
+    mbed import https://github.com/DanielDmlee/pelion-ready-example.git
     cd pelion-ready-example
+    ```
+    * Choose dedicate cellulare configuration:
+    
+    ```
+    cp mbed_app_LGU_NBIoT.json mbed_app.json
+    ```
+    or
+    ```
+    cp mbed_app_SKT_CatM1.json mbed_app.json
     ```
 
 2. Configure the API key for your Pelion Portal account.
