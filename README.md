@@ -23,7 +23,7 @@ There is a mirror version of the stable (master) template application on [this l
 
   The Pelion [Quick-Start](https://cloud.mbed.com/quick-start) is an initiative to support Mbed Partner's platforms while delivering a great User Experience to Mbed Developers.
   
-  In terms of cellular, operation confirmed with [DISCO-L475VG-IOT01A](https://os.mbed.com/platforms/ST-Discovery-L475E-IOT01A/)
+  In terms of cellular, operation tested with [DISCO-L475VG-IOT01A](https://os.mbed.com/platforms/ST-Discovery-L475E-IOT01A/)
     
 ## Getting started with the application
 
