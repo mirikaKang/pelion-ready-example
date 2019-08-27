@@ -1,10 +1,11 @@
-# Pelion Device Ready example - Cellular Custom#
+# Pelion Device Ready example - Cellular Custom
 ## Overview
 
 This is a cellular application to showcase device managemnt capabilities via [SK telecom](https://www.sktelecom.com/index_en.html) and [LGU+](http://www.uplus.co.kr/home/Index.hpi). Each telecoms are providing CatM1(SKT, LGU+) and NBIoT(LGU+) service in S.Korea.
 
-This codes are based on below versions.
+* This codes are based on below versions.
 Mbed OS 5.13.1
+
 Mbed-Cloud-Client 2.2.1
 
 ---------------------------------------------------------------------------------------------------------------------------------------
