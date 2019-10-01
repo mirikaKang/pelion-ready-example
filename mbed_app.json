@@ -1,7 +1,6 @@
 {
     "target_overrides": {
         "*": {
-            "target.components_remove"                  : ["FLASHIAP"],
             "platform.stdio-baud-rate"                  : 115200,
             "platform.stdio-convert-newlines"           : true,
             "mbed-trace.enable"                         : null,
@@ -77,11 +76,28 @@
             "target.app_offset"                         : "0x10400"
         },
         "NUCLEO_F429ZI": {
+            "target.network-default-interface-type"     : "CELLULAR",
             "target.components_add"                     : ["SD"],
             "sd.SPI_MOSI"                               : "PC_12",
             "sd.SPI_MISO"                               : "PC_11",
             "sd.SPI_CLK"                                : "PC_10",
             "sd.SPI_CS"                                 : "PC_9",
+            "lwip.ipv4-enabled"				            : false,
+            "lwip.ipv6-enabled"				            : true,
+            "lwip.ethernet-enabled"                     : false,
+            "lwip.ppp-enabled"                          : false,
+            "lwip.tcp-enabled"                          : true,
+            "cellular.debug-at"                         : false,
+            "nsapi.default-cellular-plmn"               : 0,
+            "nsapi.default-cellular-sim-pin"            : "\"1234\"",
+            "nsapi.default-cellular-apn"                : "\"lte-internet.sktelecom.com\"",
+            "nsapi.default-cellular-username"           : 0,
+            "nsapi.default-cellular-password"           : 0,
+            "QUECTEL_BG96.tx"                           : "D1",
+            "QUECTEL_BG96.rx"                           : "D0",
+            "bg96-reset"                                : "D2",
+            "bg96-pwrkey"                               : "D3",
+            "QUECTEL_BG96.provide-default"              : true,
             "device-management.flash-start-address"     : "0x08000000",
             "device-management.flash-size"              : "(2048*1024)",
             "device-management.sotp-section-1-address"  : "(MBED_CONF_APP_FLASH_START_ADDRESS + MBED_CONF_APP_FLASH_SIZE - 2*(128*1024))",
@@ -261,8 +277,7 @@
         "DISCO_L475VG_IOT01A": {
             "target.macros_remove"                      : ["MBED_TICKLESS"],
             "target.components_add"                     : ["QSPIF"],
-            "target.components_add"                     : ["WIFI_ISM43362"],
-            "target.network-default-interface-type"     : "WIFI",
+            "target.network-default-interface-type"     : "CELLULAR",
             "device-management.flash-start-address"     : "0x08000000",
             "device-management.flash-size"              : "(1024*1024)",
             "device-management.sotp-section-1-address"  : "(MBED_CONF_APP_FLASH_START_ADDRESS + MBED_CONF_APP_FLASH_SIZE - 2*(2*1024))",
@@ -277,7 +292,21 @@
             "target.bootloader_img"                     : "bootloader/mbed-bootloader-DISCO_L475VG_IOT01A.bin",
             "target.header_offset"                      : "0x10000",
             "target.app_offset"                         : "0x10400",
-            "button-pressed-state"                      : 0
+            "button-pressed-state"                      : 0,
+            "lwip.ipv4-enabled"				            : false,
+            "lwip.ipv6-enabled"				            : true,
+            "lwip.ethernet-enabled"                     : false,
+            "lwip.ppp-enabled"                          : false,
+            "lwip.tcp-enabled"                          : true,
+            "cellular.debug-at"                         : false,
+            "nsapi.default-cellular-plmn"               : 0,
+            "nsapi.default-cellular-sim-pin"            : "\"1234\"",
+            "nsapi.default-cellular-apn"                : "\"lte-internet.sktelecom.com\"",
+            "nsapi.default-cellular-username"           : 0,
+            "nsapi.default-cellular-password"           : 0,
+            "QUECTEL_BG96.tx"                           : "D1",
+            "QUECTEL_BG96.rx"                           : "D0",
+            "QUECTEL_BG96.provide-default"              : true
         },
         "DISCO_L496AG": {
             "target.macros_remove"                      : ["MBED_TICKLESS"],
@@ -736,6 +765,12 @@
         "tests-fs-size": {
             "help": "Maximum size of the file system used for tests",
             "value": null
-        }
+        },
+        "bg96-reset": {
+            "value": null
+        },
+        "bg96-pwrkey": {
+            "value": null
+        }        
     }
 }
