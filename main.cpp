@@ -52,22 +52,7 @@ MbedCloudClientResource *post_res;
 // This is great because things such as network operations are illegal in ISR, so updating a resource in a button's fall() function is not allowed
 EventQueue eventQueue;
 
-void BG96_Modem_PowerON(void)
-{
-    DigitalOut BG96_RESET(MBED_CONF_APP_BG96_RESET);
-    DigitalOut BG96_PWRKEY(MBED_CONF_APP_BG96_PWRKEY);
- 
-    BG96_RESET = 1;
-    BG96_PWRKEY = 1;
-    wait_ms(200);
- 
-    BG96_RESET = 0;
-    BG96_PWRKEY = 0;
-    wait_ms(300);
- 
-    BG96_RESET = 1;
-    wait_ms(5000);
-}
+
 
 
 /**
@@ -123,7 +108,7 @@ void registered(const ConnectorClientEndpointInfo *endpoint) {
 }
 
 int main(void) {
-    printf("pelion Ready example\n");
+    printf("\n\n\npelion Ready example\n");
     printf("Built: %s, %s\n", __DATE__, __TIME__);
 	printf("Mbed OS version: %d.%d.%d\n", MBED_MAJOR_VERSION, MBED_MINOR_VERSION, MBED_PATCH_VERSION);
    
