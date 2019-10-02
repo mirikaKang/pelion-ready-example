@@ -47,6 +47,9 @@ DigitalOut led(LED1, 0);
 MbedCloudClientResource *button_res;
 MbedCloudClientResource *led_res;
 MbedCloudClientResource *post_res;
+//by mirika 
+MbedCloudClientResource *str_res;
+
 
 // An event queue is a very useful structure to debounce information between contexts (e.g. ISR and normal threads)
 // This is great because things such as network operations are illegal in ISR, so updating a resource in a button's fall() function is not allowed
@@ -111,27 +114,31 @@ int main(void) {
     printf("\n\n\npelion Ready example\n");
     printf("Built: %s, %s\n", __DATE__, __TIME__);
 	printf("Mbed OS version: %d.%d.%d\n", MBED_MAJOR_VERSION, MBED_MINOR_VERSION, MBED_PATCH_VERSION);
-   
+
+	
 #if MBED_CONF_SERCOMM_TPB23_PROVIDE_DEFAULT == 1
-    DigitalOut TPB23_RESET(A1);
+
+	DigitalOut TPB23_RESET(A1);
     TPB23_RESET = 0;    /* 0: Standby 1: Reset */
     printf("\nSERCOM TPB23 Standby\n");
+	
 #elif MBED_CONF_QUECTEL_BG96_PROVIDE_DEFAULT == 1
     DigitalOut BG96_RESET(MBED_CONF_APP_BG96_RESET);
     DigitalOut BG96_PWRKEY(MBED_CONF_APP_BG96_PWRKEY);
  
     BG96_RESET = 1;
     BG96_PWRKEY = 1;
-    wait_ms(200);
+    wait_ms(500);
  
     BG96_RESET = 0;
     BG96_PWRKEY = 0;
-    wait_ms(300);
+    wait_ms(500);
  
     BG96_RESET = 1;
-    wait_ms(5000);
+    wait_ms(8000);
     printf("\nQUECTEL BG96 Standby\n");
 #endif
+
     printf("\nStarting Simple Pelion Device Management Client example\n");
 
     int storage_status = fs.mount(bd);
@@ -196,6 +203,13 @@ int main(void) {
     post_res->methods(M2MMethod::POST);
     post_res->attach_post_callback(post_callback);
 
+
+// mirika 
+	str_res = client.create_resource("3400/0/5500","ImageChunk");
+	str_res->set_value((char*)"-------------START--------------");
+	str_res->observable(true);
+	str_res->methods(M2MMethod::GET);
+	
     printf("Initialized Pelion Device Management Client. Registering...\n");
 
     // Callback that fires when registering is complete
